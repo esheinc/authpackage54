@@ -1,0 +1,28 @@
+{
+    "name": "esheinc/authpackage",
+    "description": "esheinc admin auth package",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["auth", "authentication", "esheinc"],
+    "authors": [
+        {
+            "name": "unitests",
+            "email": "unitests@esheinc.com"
+        }
+    ],
+    "minimum-stability" : "dev",
+    "require": {
+        "torann/geoip": "^1.0",
+        "jenssegers/agent": "^2.4",
+        "geoip2/geoip2": "^2.4"
+    },
+
+    "autoload": {
+
+        "psr-4": {
+            "Esheinc\\AuthPackage\\":"src/"
+        }
+        
+    }
+
+}
