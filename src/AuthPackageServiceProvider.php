@@ -15,11 +15,11 @@ class AuthPackageServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         $this->publishes([
             __DIR__.'/views' => base_path('resources/views/vendor/AuthPackage'),
             __DIR__.'/assets' => base_path('public/assets'),
-            __DIR__.'/migrations' => base_path('database/migrations'),
             __DIR__.'/seeds' => base_path('database/seeds'),
             __DIR__.'/authpackage.php' => config_path('authpackage.php'),
         ]);
@@ -44,11 +44,10 @@ class AuthPackageServiceProvider extends ServiceProvider
         // service providers
         $this->app->register('Torann\GeoIP\GeoIPServiceProvider');
         $this->app->register('Jenssegers\Agent\AgentServiceProvider');
-
         Config::set('auth.providers.users.model', Config::get('authpackage.users.model'));
         Config::set('geoip.cache_tags', Config::get('authpackage.geoip.cache_tags'));
 
-
+        
         //command
         $this->commands([
                 Console\Install::class

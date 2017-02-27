@@ -24,7 +24,7 @@ class CreateAdminsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->timestamp('last_login_at');
+            $table->timestamp('last_login_at')->nullable();
             $table->string('last_login_ip');
             $table->string('last_login_geo');
         });

@@ -38,11 +38,7 @@ class Install extends Command
      */
     public function handle()
     {
-        $this->comment('Running vendor:publish...');
-        $exitCode = Artisan::call('vendor:publish', []);
-        $this->comment('Running autoload for seeding...');
-        shell_exec("composer dump-autoload");
-        $this->comment('Running geoip:update...');
+        $this->comment('Updating geoip for maxmind_database...');
         $exitCode = Artisan::call('geoip:update', []);
         $this->comment('Running migrate:refresh...');
         $exitCode = Artisan::call('migrate:refresh', []);
