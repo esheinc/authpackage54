@@ -154,7 +154,7 @@ class AdminController extends Controller
         $location = geoip()->getLocation($ip);
 
         $agent = new Agent();
-        $language = 'en';
+        $language = implode(',', $agent->languages());
         $device = $agent->device();
         $os = $agent->platform();
         $browser = $agent->browser();
@@ -169,8 +169,6 @@ class AdminController extends Controller
             'os' => $os,
             'browser' => $browser,
             'browser_version' => $browser_version,
-            'agent' => 'agent',
-            'agent_version' => 'agent_version',
         ]);
 
     }

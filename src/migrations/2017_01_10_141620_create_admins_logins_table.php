@@ -18,13 +18,11 @@ class CreateAdminsLoginsTable extends Migration
             $table->integer('status')->comment('0=unsuccessful,1=successful');
             $table->string('ip');
             $table->string('geo');
-            $table->string('language');
+            $table->string('language')->nullable();
             $table->string('device')->nullable();
             $table->string('os');
             $table->string('browser');
             $table->string('browser_version');
-            $table->string('agent');
-            $table->string('agent_version');
         });
     }
 
